@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>404 — Tux Interior</title>
+  <meta
+    name="description"
+    content="The page you're looking for is currently unavailable. Return to Tux Interior."
+  />
+  <meta name="theme-color" content="#ffffff" />
+
+  <style>
+    :root {
+      --orange: #F38C0F;
+      --green: #26382A;
+      --black: #111411;
+      --muted: #707771;
+      --line: rgba(38, 56, 42, 0.10);
+      --soft: #f8faf8;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #ffffff;
+      color: var(--black);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* =====================================================
+       ARCHITECTURAL BACKGROUND
+    ===================================================== */
+
+    .architecture-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .architecture-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 270px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent 49.7%,
+          rgba(38, 56, 42, 0.065) 50%,
+          transparent 50.3%
+        ),
+        linear-gradient(
+          0deg,
+          transparent 49.7%,
+          rgba(38, 56, 42, 0.065) 50%,
+          transparent 50.3%
+        );
+
+      background-size: 72px 72px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent
+        );
+    }
+
+    .blueprint-box {
+      position: absolute;
+      border: 1px solid rgba(38, 56, 42, 0.07);
+    }
+
+    .box-one {
+      width: 420px;
+      height: 190px;
+      top: 35px;
+      left: -120px;
+      transform: rotate(-8deg);
+    }
+
+    .box-two {
+      width: 330px;
+      height: 140px;
+      top: 100px;
+      right: -80px;
+      transform: rotate(11deg);
+    }
+
+    .box-three {
+      width: 190px;
+      height: 190px;
+      top: 35px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      opacity: 0.35;
+    }
+
+    .dimension-line {
+      position: absolute;
+      height: 1px;
+      background: rgba(38, 56, 42, 0.09);
+    }
+
+    .dimension-line::before,
+    .dimension-line::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      width: 1px;
+      height: 11px;
+      background: rgba(38, 56, 42, 0.12);
+    }
+
+    .dimension-line::before {
+      left: 0;
+    }
+
+    .dimension-line::after {
+      right: 0;
+    }
+
+    .dimension-one {
+      width: 180px;
+      top: 125px;
+      left: 9%;
+    }
+
+    .dimension-two {
+      width: 150px;
+      top: 155px;
+      right: 9%;
+    }
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
+
+    main {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      width: min(900px, calc(100% - 30px));
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 40px 0;
+    }
+
+    .error-container {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* =====================================================
+       LOGO
+    ===================================================== */
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .logo img {
+      width: 145px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* =====================================================
+       ERROR NUMBER
+    ===================================================== */
+
+    .error-number {
+      position: relative;
+      display: inline-block;
+
+      font-size: clamp(120px, 23vw, 245px);
+      line-height: 0.78;
+      letter-spacing: -0.09em;
+      font-weight: 900;
+
+      color: transparent;
+
+      -webkit-text-stroke:
+        2px rgba(38, 56, 42, 0.15);
+
+      user-select: none;
+    }
+
+    .error-number::after {
+      content: "404";
+
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: rgba(243, 140, 15, 0.10);
+
+      -webkit-text-stroke: 0;
+      transform: translate(5px, 5px);
+    }
+
+    /* =====================================================
+       CONTENT
+    ===================================================== */
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-top: 24px;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      border: 1px solid rgba(243, 140, 15, 0.25);
+
+      background: rgba(243, 140, 15, 0.05);
+
+      color: var(--green);
+
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+
+      box-shadow:
+        0 0 0 5px rgba(243, 140, 15, 0.10);
+    }
+
+    h1 {
+      margin-top: 18px;
+
+      color: var(--green);
+
+      font-size: clamp(32px, 5vw, 55px);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      font-weight: 850;
+    }
+
+    h1 span {
+      color: var(--orange);
+    }
+
+    .description {
+      max-width: 520px;
+      margin: 15px auto 0;
+
+      color: var(--muted);
+
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* =====================================================
+       ARCHITECTURAL CARD
+    ===================================================== */
+
+    .architect-card {
+      width: min(590px, 100%);
+      margin: 28px auto 0;
+
+      padding: 19px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      border: 1px solid rgba(38, 56, 42, 0.09);
+      border-radius: 15px;
+
+      background: rgba(255, 255, 255, 0.88);
+
+      box-shadow:
+        0 20px 55px rgba(38, 56, 42, 0.055);
+    }
+
+    .architect-info {
+      text-align: left;
+    }
+
+    .architect-label {
+      color: var(--orange);
+
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .architect-title {
+      margin-top: 6px;
+
+      color: var(--green);
+
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .architect-subtitle {
+      margin-top: 3px;
+
+      color: var(--muted);
+
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .architect-symbol {
+      position: relative;
+
+      width: 48px;
+      height: 48px;
+
+      flex-shrink: 0;
+
+      border: 1px solid rgba(38, 56, 42, 0.13);
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--green);
+
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .architect-symbol::before,
+    .architect-symbol::after {
+      content: "";
+
+      position: absolute;
+
+      background: var(--orange);
+    }
+
+    .architect-symbol::before {
+      width: 7px;
+      height: 1px;
+      right: -4px;
+      top: 50%;
+    }
+
+    .architect-symbol::after {
+      width: 1px;
+      height: 7px;
+      left: 50%;
+      top: -4px;
+    }
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+
+    .actions {
+      margin-top: 18px;
+
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 43px;
+
+      padding: 0 19px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      border-radius: 10px;
+
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: var(--green);
+
+      box-shadow:
+        0 10px 24px rgba(38, 56, 42, 0.15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #1d2d21;
+    }
+
+    .btn-secondary {
+      color: var(--green);
+      background: #ffffff;
+
+      border: 1px solid rgba(38, 56, 42, 0.13);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(243, 140, 15, 0.45);
+    }
+
+    /* =====================================================
+       MINI LOCATION
+    ===================================================== */
+
+    .location {
+      margin-top: 20px;
+
+      color: #858c87;
+
+      font-size: 9px;
+      line-height: 1.6;
+    }
+
+    .location strong {
+      color: var(--green);
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .mini-footer {
+      margin-top: 31px;
+
+      padding-top: 16px;
+
+      border-top: 1px solid rgba(38, 56, 42, 0.08);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+
+      color: #858b86;
+
+      font-size: 9px;
+    }
+
+    .mini-footer strong {
+      color: var(--green);
+    }
+
+    .footer-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 600px) {
+
+      main {
+        width: min(100% - 24px, 520px);
+        padding: 30px 0;
+      }
+
+      .logo {
+        margin-bottom: 23px;
+      }
+
+      .logo img {
+        width: 120px;
+      }
+
+      .error-number {
+        font-size: clamp(100px, 31vw, 175px);
+      }
+
+      .architect-card {
+        padding: 16px;
+      }
+
+      .architect-symbol {
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+      }
+
+      .actions {
+        width: 100%;
+      }
+
+      .btn {
+        flex: 1;
+        min-width: 135px;
+      }
+    }
+
+    @media (max-width: 390px) {
+
+      .architect-card {
+        align-items: flex-start;
+      }
+
+      .architect-title {
+        font-size: 13px;
+      }
+
+      .architect-subtitle {
+        font-size: 9px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .mini-footer {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .footer-dot {
+        display: none;
+      }
+    }
+
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Architectural Background -->
+  <div class="architecture-bg" aria-hidden="true">
+
+    <div class="blueprint-box box-one"></div>
+    <div class="blueprint-box box-two"></div>
+    <div class="blueprint-box box-three"></div>
+
+    <div class="dimension-line dimension-one"></div>
+    <div class="dimension-line dimension-two"></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       CONTENT
+  ====================================================== -->
+
+  <main>
+
+    <div class="error-container">
+
+      <!-- Logo -->
+      <div class="logo">
+        <img
+          src="logo.jpg"
+          alt="Tux Interior"
+        />
+      </div>
+
+
+      <!-- 404 -->
+      <div class="error-number">
+        404
+      </div>
+
+
+      <!-- Tag -->
+      <div class="tag">
+        <span class="tag-dot"></span>
+        Page Not Found
+      </div>
+
+
+      <!-- Heading -->
+      <h1>
+        Looks Like This Space<br />
+        <span>Isn't Ready Yet.</span>
+      </h1>
+
+
+      <!-- Description -->
+      <p class="description">
+        The page you're looking for is currently unavailable.
+        Just like a space under design, some things take a little
+        time to come together.
+      </p>
+
+
+      <!-- Architectural Card -->
+      <div class="architect-card">
+
+        <div class="architect-info">
+
+          <div class="architect-label">
+            TUX INTERIOR
+          </div>
+
+          <div class="architect-title">
+            Designing Spaces. Defining Experiences.
+          </div>
+
+          <div class="architect-subtitle">
+            Interior Design • Architecture • Turnkey Interiors
+          </div>
+
+        </div>
+
+        <div class="architect-symbol">
+          T
+        </div>
+
+      </div>
+
+
+      <!-- Actions -->
+      <div class="actions">
+
+        <a
+          href="index.html"
+          class="btn btn-primary"
+        >
+          ← Back to Home
+        </a>
+
+        <a
+          href="https://wa.me/919145879563?text=Hello%20Tux%20Interior%2C%20I%20would%20like%20to%20know%20more%20about%20your%20interior%20services."
+          target="_blank"
+          rel="noopener"
+          class="btn btn-secondary"
+        >
+          WhatsApp Us
+        </a>
+
+        <a
+          href="tel:+919145879563"
+          class="btn btn-secondary"
+        >
+          Call Now
+        </a>
+
+      </div>
+
+
+      <!-- Location -->
+      <div class="location">
+        <strong>Tux Interior</strong>
+        &nbsp;•&nbsp;
+        Money Plant High Street,
+        A-1130, Jagatpur Rd,
+        Gota, Ahmedabad, Gujarat 382470
+      </div>
+
+
+      <!-- Footer -->
+      <div class="mini-footer">
+
+        <span>
+          © <strong id="year"></strong> Tux Interior
+        </span>
+
+        <span class="footer-dot"></span>
+
+        <span>
+          Ahmedabad, Gujarat
+        </span>
+
+        <span class="footer-dot"></span>
+
+        <span>
+          Interior & Architecture
+        </span>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script>
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
