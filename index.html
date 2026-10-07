@@ -1,2010 +1,900 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Tux Interior — Something Beautiful Is Coming</title>
-  <meta name="description" content="Tux Interior is opening soon in Ahmedabad. Grand Opening on 01 October 2026. Interior Design, Architecture and Turnkey Interiors." />
-  <meta name="theme-color" content="#ffffff" />
-
-  <!-- Social Preview -->
-  <meta property="og:title" content="Tux Interior — Something Beautiful Is Coming" />
-  <meta property="og:description" content="Tux Interior is opening soon in Ahmedabad. Grand Opening on 01 October 2026." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="logo.jpg" />
-  <meta property="og:image:alt" content="Tux Interior" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Tux Interior — Something Beautiful Is Coming" />
-  <meta name="twitter:description" content="Tux Interior is opening soon in Ahmedabad. Grand Opening on 01 October 2026." />
-  <meta name="twitter:image" content="logo.jpg" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
-  <style>
-    :root {
-      --orange: #F38C0F;
-      --green: #26382A;
-      --black: #111411;
-      --muted: #69706b;
-      --line: rgba(38, 56, 42, 0.10);
-      --soft: #f8faf8;
-      --white: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family:
-        Inter,
-        ui-sans-serif,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-      color: var(--black);
-      background: #fff;
-      overflow-x: hidden;
-    }
-
-    button,
-    a {
-      font: inherit;
-    }
-
-    button {
-      border: 0;
-      cursor: pointer;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* =========================================================
-       ARCHITECTURAL BACKGROUND
-    ========================================================= */
-
-    .architecture-bg {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(38, 56, 42, 0.025),
-          transparent 24%
-        );
-    }
-
-    .architecture-bg::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 220px;
-      opacity: 0.8;
-      background:
-        linear-gradient(90deg, transparent 49.8%, var(--line) 50%, transparent 50.2%),
-        linear-gradient(0deg, transparent 49.8%, var(--line) 50%, transparent 50.2%);
-      background-size: 70px 70px;
-      mask-image: linear-gradient(to bottom, black, transparent);
-    }
-
-    .blueprint-line {
-      position: absolute;
-      border: 1px solid rgba(38, 56, 42, 0.07);
-    }
-
-    .line-1 {
-      width: 420px;
-      height: 170px;
-      top: 35px;
-      left: -120px;
-      transform: rotate(-8deg);
-    }
-
-    .line-2 {
-      width: 330px;
-      height: 120px;
-      top: 100px;
-      right: -90px;
-      transform: rotate(12deg);
-    }
-
-    .line-3 {
-      width: 210px;
-      height: 210px;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%) rotate(45deg);
-      opacity: 0.35;
-    }
-
-    .blueprint-dimension {
-      position: absolute;
-      height: 1px;
-      background: rgba(38, 56, 42, 0.10);
-    }
-
-    .blueprint-dimension::before,
-    .blueprint-dimension::after {
-      content: "";
-      position: absolute;
-      top: -4px;
-      width: 1px;
-      height: 9px;
-      background: rgba(38, 56, 42, 0.15);
-    }
-
-    .blueprint-dimension::before {
-      left: 0;
-    }
-
-    .blueprint-dimension::after {
-      right: 0;
-    }
-
-    .dimension-1 {
-      width: 190px;
-      top: 112px;
-      left: 8%;
-    }
-
-    .dimension-2 {
-      width: 160px;
-      top: 145px;
-      right: 9%;
-    }
-
-    /* =========================================================
-       MAIN
-    ========================================================= */
-
-    main {
-      position: relative;
-      z-index: 2;
-      width: min(1120px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 42px 0 0;
-    }
-
-    /* =========================================================
-       LOGO
-    ========================================================= */
-
-    .brand {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-
-    .brand img {
-      width: 150px;
-      max-width: 42vw;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    /* =========================================================
-       HERO
-    ========================================================= */
-
-    .hero {
-      text-align: center;
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 8px 13px;
-      border: 1px solid rgba(243, 140, 15, 0.28);
-      background: rgba(243, 140, 15, 0.055);
-      border-radius: 999px;
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--orange);
-      box-shadow: 0 0 0 5px rgba(243, 140, 15, 0.10);
-    }
-
-    .hero h1 {
-      margin-top: 22px;
-      font-size: clamp(42px, 6vw, 78px);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-      font-weight: 800;
-      color: var(--green);
-    }
-
-    .hero h1 span {
-      color: var(--orange);
-    }
-
-    .brand-name {
-      margin-top: 18px;
-      font-size: 13px;
-      letter-spacing: 0.38em;
-      padding-left: 0.38em;
-      font-weight: 800;
-      color: var(--green);
-    }
-
-    .hero-description {
-      max-width: 620px;
-      margin: 18px auto 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .service-line {
-      margin-top: 13px;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #7b827d;
-    }
-
-    /* =========================================================
-       COUNTDOWN AREA
-       GIFT + TIMER OCCUPY EXACT SAME SPACE
-    ========================================================= */
-
-    .countdown-section {
-      margin-top: 38px;
-      text-align: center;
-    }
-
-    .countdown-title {
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    /*
-      IMPORTANT:
-      Both gift and countdown are inside this exact same stage.
-      Nothing moves down after opening.
-    */
-    .reveal-stage {
-      position: relative;
-      width: min(900px, 100%);
-      height: 292px;
-      margin: 0 auto;
-    }
-
-    .gift-scene,
-    .countdown-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition:
-        opacity 0.65s ease,
-        transform 0.65s cubic-bezier(.2,.8,.2,1),
-        visibility 0.65s ease;
-    }
-
-    .gift-scene {
-      opacity: 1;
-      visibility: visible;
-      transform: scale(1);
-      z-index: 5;
-      flex-direction: column;
-    }
-
-    .gift-scene.opened {
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(0.82);
-      pointer-events: none;
-    }
-
-    .countdown-content {
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(0.90);
-      z-index: 4;
-      pointer-events: none;
-    }
-
-    .countdown-content.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: scale(1);
-      pointer-events: auto;
-    }
-
-    /* =========================================================
-       TAP HINT
-    ========================================================= */
-
-    .tap-hint {
-      position: absolute;
-      top: 4px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      color: var(--green);
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      pointer-events: none;
-    }
-
-    .tap-hint::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: -9px;
-      width: 92px;
-      height: 34px;
-      transform: translateX(-50%);
-      border: 1px solid rgba(243, 140, 15, 0.38);
-      border-radius: 999px;
-      animation: tapRing 1.7s ease-out infinite;
-    }
-
-    .tap-finger {
-      font-size: 18px;
-      color: var(--orange);
-      animation: fingerTap 1.1s ease-in-out infinite;
-      filter: drop-shadow(0 3px 7px rgba(243, 140, 15, 0.25));
-    }
-
-    @keyframes fingerTap {
-      0%, 100% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(4px) scale(0.92);
-      }
-    }
-
-    @keyframes tapRing {
-      0% {
-        opacity: 0.8;
-        transform: translateX(-50%) scale(0.86);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(-50%) scale(1.22);
-      }
-    }
-
-    /* =========================================================
-       GIFT BOX
-    ========================================================= */
-
-    .gift-button {
-      position: relative;
-      margin-top: 34px;
-      width: 178px;
-      height: 150px;
-      background: transparent;
-      display: block;
-      padding: 0;
-      outline: none;
-      transition: transform 0.25s ease;
-    }
-
-    .gift-button:hover {
-      transform: translateY(-5px);
-    }
-
-    .gift-shadow {
-      position: absolute;
-      width: 185px;
-      height: 25px;
-      left: 50%;
-      bottom: 2px;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      background: rgba(38, 56, 42, 0.13);
-      filter: blur(12px);
-    }
-
-    .gift-body {
-      position: absolute;
-      width: 145px;
-      height: 105px;
-      left: 50%;
-      bottom: 17px;
-      transform: translateX(-50%);
-      border-radius: 4px 4px 8px 8px;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.13),
-          transparent 24%,
-          transparent 76%,
-          rgba(0,0,0,0.08)
-        ),
-        var(--orange);
-      box-shadow:
-        inset 0 -10px 20px rgba(0,0,0,0.08),
-        0 16px 32px rgba(38, 56, 42, 0.16);
-    }
-
-    .gift-body::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 22px;
-      transform: translateX(-50%);
-      background: var(--green);
-      opacity: 0.96;
-    }
-
-    .gift-lid {
-      position: absolute;
-      width: 166px;
-      height: 31px;
-      left: 50%;
-      top: 39px;
-      transform: translateX(-50%);
-      border-radius: 5px;
-      background: var(--orange);
-      box-shadow:
-        0 7px 13px rgba(38, 56, 42, 0.15),
-        inset 0 -5px 8px rgba(0,0,0,0.08);
-      z-index: 3;
-    }
-
-    .gift-lid::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 22px;
-      transform: translateX(-50%);
-      background: var(--green);
-    }
-
-    .gift-bow {
-      position: absolute;
-      z-index: 5;
-      left: 50%;
-      top: 24px;
-      transform: translateX(-50%);
-      width: 66px;
-      height: 35px;
-    }
-
-    .bow-left,
-    .bow-right {
-      position: absolute;
-      width: 36px;
-      height: 25px;
-      top: 0;
-      background: var(--green);
-      border-radius: 70% 20% 70% 20%;
-    }
-
-    .bow-left {
-      left: 0;
-      transform: rotate(25deg);
-    }
-
-    .bow-right {
-      right: 0;
-      transform: scaleX(-1) rotate(25deg);
-    }
-
-    .bow-center {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--green);
-      border-radius: 50%;
-      z-index: 3;
-    }
-
-    .gift-click-label {
-      position: absolute;
-      bottom: -3px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--green);
-      font-size: 9px;
-      letter-spacing: 0.18em;
-      font-weight: 800;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    /* =========================================================
-       COUNTDOWN
-    ========================================================= */
-
-    .timer-grid {
-      width: min(790px, 100%);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 13px;
-    }
-
-    .time-card {
-      position: relative;
-      min-height: 155px;
-      padding: 26px 12px 19px;
-      border: 1px solid rgba(38, 56, 42, 0.10);
-      background: rgba(255,255,255,0.92);
-      box-shadow:
-        0 16px 45px rgba(38, 56, 42, 0.055),
-        inset 0 0 0 1px rgba(255,255,255,0.8);
-      border-radius: 15px;
-      overflow: hidden;
-    }
-
-    .time-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 3px;
-      background: linear-gradient(
-        90deg,
-        var(--orange),
-        var(--green)
-      );
-    }
-
-    .time-number {
-      display: block;
-      color: var(--green);
-      font-size: clamp(42px, 6vw, 66px);
-      font-weight: 850;
-      line-height: 1;
-      letter-spacing: -0.055em;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .time-label {
-      display: block;
-      margin-top: 15px;
-      font-size: 9px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: #737a75;
-    }
-
-    .opening-message {
-      display: none;
-      text-align: center;
-    }
-
-    .opening-message.active {
-      display: block;
-    }
-
-    .opening-message strong {
-      display: block;
-      font-size: clamp(30px, 5vw, 54px);
-      color: var(--orange);
-      letter-spacing: -0.04em;
-    }
-
-    .opening-message span {
-      display: block;
-      margin-top: 8px;
-      color: var(--green);
-      font-size: 13px;
-      letter-spacing: 0.08em;
-    }
-
-    /* =========================================================
-       OPENING DETAILS
-    ========================================================= */
-
-    .details {
-      width: min(790px, 100%);
-      margin: 8px auto 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 13px;
-    }
-
-    .detail-card {
-      padding: 18px 20px;
-      border: 1px solid rgba(38, 56, 42, 0.09);
-      background: #fff;
-      border-radius: 14px;
-      text-align: left;
-    }
-
-    .detail-label {
-      font-size: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #7c837e;
-      font-weight: 800;
-    }
-
-    .detail-value {
-      margin-top: 7px;
-      font-size: 13px;
-      line-height: 1.55;
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    .detail-value small {
-      display: block;
-      color: #7b827d;
-      font-size: 10px;
-      font-weight: 500;
-      margin-top: 2px;
-    }
-
-    /* =========================================================
-       ENQUIRY
-    ========================================================= */
-
-    .enquiry {
-      width: min(790px, 100%);
-      margin: 17px auto 0;
-      padding: 22px;
-      border: 1px solid rgba(243, 140, 15, 0.18);
-      border-radius: 17px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(243,140,15,0.045),
-          rgba(38,56,42,0.025)
-        );
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .enquiry-copy {
-      text-align: left;
-    }
-
-    .enquiry-copy .eyebrow {
-      color: var(--orange);
-      font-size: 8px;
-      letter-spacing: 0.2em;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .enquiry-copy h2 {
-      margin-top: 6px;
-      color: var(--green);
-      font-size: 20px;
-      letter-spacing: -0.025em;
-    }
-
-    .enquiry-copy p {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.5;
-    }
-
-    .enquiry-actions {
-      display: flex;
-      gap: 9px;
-      flex-shrink: 0;
-    }
-
-    .btn {
-      min-height: 42px;
-      padding: 0 17px;
-      border-radius: 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      transition: 0.25s ease;
-    }
-
-    .btn-primary {
-      color: #fff;
-      background: var(--green);
-      box-shadow: 0 9px 22px rgba(38, 56, 42, 0.16);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      background: #1e2f23;
-    }
-
-    .btn-secondary {
-      color: var(--green);
-      background: #fff;
-      border: 1px solid rgba(38, 56, 42, 0.14);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      border-color: rgba(243, 140, 15, 0.45);
-    }
-
-    /* =========================================================
-       LOCATION
-    ========================================================= */
-
-    .location {
-      width: min(790px, 100%);
-      margin: 13px auto 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 7px;
-      flex-wrap: wrap;
-      color: #747b76;
-      font-size: 10px;
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    .location strong {
-      color: var(--green);
-    }
-
-    .location a {
-      color: var(--orange);
-      font-weight: 800;
-    }
-
-    .location a:hover {
-      text-decoration: underline;
-    }
-
-    /* =========================================================
-       SHARE
-    ========================================================= */
-
-    .share-wrap {
-      display: flex;
-      justify-content: center;
-      margin-top: 18px;
-    }
-
-    .share-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #26382a;
-      background: #f38c0f7a;
-      border: 1px solid rgba(38, 56, 42, 0.11);
-      border-radius: 14px;
-      padding: 9px 15px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      transition: 0.25s ease;
-    }
-
-    .share-btn:hover {
-      border-color: rgba(243, 140, 15, 0.4);
-      transform: translateY(-2px);
-    }
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    footer {
-      position: relative;
-      z-index: 2;
-      margin-top: 55px;
-      border-top: 1px solid rgba(38, 56, 42, 0.09);
-      background: #fbfcfb;
-    }
-
-    .footer-inner {
-      width: min(1120px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 34px 0 23px;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    .footer-brand img {
-      width: 100px;
-      height: auto;
-      display: block;
-    }
-
-    .footer-brand p {
-      max-width: 310px;
-      margin-top: 12px;
-      color: #737a75;
-      font-size: 10px;
-      line-height: 1.65;
-    }
-
-    .footer-heading {
-      color: var(--green);
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 13px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .footer-links a {
-      color: #707771;
-      font-size: 10px;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--orange);
-    }
-
-    .footer-bottom {
-      margin-top: 28px;
-      padding-top: 15px;
-      border-top: 1px solid rgba(38, 56, 42, 0.07);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      color: #858b86;
-      font-size: 9px;
-    }
-
-    .footer-bottom strong {
-      color: var(--green);
-    }
-
-    /* =========================================================
-       SHARE MODAL
-    ========================================================= */
-
-    .share-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      background: rgba(18, 25, 20, 0.28);
-      backdrop-filter: blur(9px);
-      -webkit-backdrop-filter: blur(9px);
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.25s ease;
-    }
-
-    .share-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .share-panel {
-      width: min(390px, 100%);
-      padding: 25px;
-      border-radius: 20px;
-      background: #fff;
-      border: 1px solid rgba(38, 56, 42, 0.10);
-      box-shadow: 0 30px 80px rgba(20, 30, 23, 0.18);
-      transform: translateY(12px) scale(0.97);
-      transition: 0.3s ease;
-    }
-
-    .share-overlay.active .share-panel {
-      transform: translateY(0) scale(1);
-    }
-
-    .share-panel-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .share-panel h3 {
-      color: var(--green);
-      font-size: 20px;
-      letter-spacing: -0.03em;
-    }
-
-    .close-share {
-      width: 31px;
-      height: 31px;
-      border-radius: 50%;
-      background: #f3f5f3;
-      color: var(--green);
-      font-size: 18px;
-    }
-
-    .share-panel p {
-      margin-top: 7px;
-      color: #777e79;
-      font-size: 11px;
-      line-height: 1.5;
-    }
-
-    .share-options {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
-      margin-top: 19px;
-    }
-
-    .share-option {
-      padding: 12px;
-      border-radius: 11px;
-      border: 1px solid rgba(38,56,42,0.09);
-      background: #fff;
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-    .share-option:hover {
-      border-color: rgba(243,140,15,0.4);
-    }
-
-    /* =========================================================
-       CELEBRATION
-    ========================================================= */
-
-    #celebration {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 80;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      opacity: 0;
-      animation: celebrate 1.8s ease-out forwards;
-    }
-
-    @keyframes celebrate {
-      0% {
-        opacity: 0;
-        transform: translate(0, 0) scale(0.4);
-      }
-      12% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform:
-          translate(var(--x), var(--y))
-          rotate(var(--r))
-          scale(1);
-      }
-    }
-
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-
-    @media (max-width: 760px) {
-      main {
-        width: min(100% - 24px, 620px);
-        padding-top: 30px;
-      }
-
-      .brand img {
-        width: 125px;
-      }
-
-      .hero h1 {
-        font-size: clamp(38px, 11vw, 60px);
-      }
-
-      .hero-description {
-        font-size: 13px;
-        max-width: 480px;
-      }
-
-      .service-line {
-        font-size: 9px;
-        line-height: 1.6;
-      }
-
-      .countdown-section {
-        margin-top: 31px;
-      }
-
-      .reveal-stage {
-        height: 315px;
-      }
-
-      .timer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-
-      .time-card {
-        min-height: 126px;
-        padding: 22px 10px 15px;
-      }
-
-      .time-number {
-        font-size: clamp(39px, 13vw, 57px);
-      }
-
-      .time-label {
-        margin-top: 10px;
-      }
-
-      .details {
-        grid-template-columns: 1fr;
-      }
-
-      .enquiry {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 18px;
-      }
-
-      .enquiry-copy {
-        text-align: center;
-      }
-
-      .enquiry-actions {
-        width: 100%;
-      }
-
-      .enquiry-actions .btn {
-        flex: 1;
-      }
-
-      .location {
-        padding: 0 5px;
-      }
-
-      .footer-top {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px 20px;
-      }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .reveal-stage {
-        height: 310px;
-      }
-
-      .gift-button {
-        transform: scale(0.91);
-      }
-
-      .gift-button:hover {
-        transform: scale(0.91) translateY(-4px);
-      }
-
-      .tap-hint {
-        font-size: 8px;
-      }
-
-      .enquiry-actions {
-        flex-direction: column;
-      }
-
-      .footer-top {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-brand {
-        grid-column: auto;
-      }
-    }
-
-    /* =========================================================
-       REDUCED MOTION
-    ========================================================= */
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.001ms !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- Architectural Background -->
-  <div class="architecture-bg" aria-hidden="true">
-    <div class="blueprint-line line-1"></div>
-    <div class="blueprint-line line-2"></div>
-    <div class="blueprint-line line-3"></div>
-
-    <div class="blueprint-dimension dimension-1"></div>
-    <div class="blueprint-dimension dimension-2"></div>
-  </div>
-
-  <!-- =======================================================
-       MAIN CONTENT
-  ======================================================== -->
-
-  <main>
-
-    <!-- Logo -->
-    <div class="brand">
-      <img src="logo.jpg" alt="Tux Interior Logo" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Tux Interior | Home Interior Designer & Turnkey Interiors in Ahmedabad</title>
+    <meta name="description" content="Tux Interior provides turnkey home interior design, custom carpentry, modular furniture, and complete residential renovations across Ahmedabad, Gujarat." />
+    <meta name="keywords" content="Home Interior Designers in Ahmedabad, Interior Designer in Ahmedabad, Turnkey Interior Design Ahmedabad, Residential Interior Designer Ahmedabad, 2 BHK Interior Design Ahmedabad, 3 BHK Interior Design Ahmedabad, Gota Ahmedabad Interior" />
+    <meta name="author" content="Tux Interior" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.tuxinterior.in/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.tuxinterior.in/" />
+    <meta property="og:title" content="Tux Interior | Home Interior Designer & Turnkey Interiors in Ahmedabad" />
+    <meta property="og:description" content="Modern, functional, and personalized home interiors with turnkey execution across Ahmedabad. Complete solutions from carpentry to handover." />
+    <meta property="og:image" content="https://www.tuxinterior.in/logo.jpg" />
+    <meta property="og:site_name" content="Tux Interior" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.tuxinterior.in/" />
+    <meta name="twitter:title" content="Tux Interior | Home Interior Designer & Turnkey Interiors in Ahmedabad" />
+    <meta name="twitter:description" content="Modern, functional, and personalized home interiors with turnkey execution across Ahmedabad." />
+    <meta name="twitter:image" content="https://www.tuxinterior.in/logo.jpg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- LocalBusiness Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Tux Interior",
+      "image": "https://www.tuxinterior.in/logo.jpg",
+      "telephone": ["+91919145879563", "+919601343574"],
+      "email": "tuxinterior63@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Money Plant High Street, A-1130, Jagatpur Rd, Gota",
+        "addressLocality": "Ahmedabad",
+        "addressRegion": "Gujarat",
+        "postalCode": "382470",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.1130489,
+        "longitude": 72.5385922
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Ahmedabad" },
+        { "@type": "AdministrativeArea", "name": "Gujarat" }
+      ],
+      "url": "https://www.tuxinterior.in",
+      "priceRange": "₹₹₹"
+    }
+    </script>
+  </head>
+  <body>
+
+    <!-- 1. LOADING SCREEN -->
+    <div id="page-loader" aria-hidden="true">
+      <div class="loader-content">
+        <div class="loader-logo-wrap">
+          <div class="loader-ring"></div>
+          <img src="logo.jpg" alt="Tux Interior Ahmedabad" class="loader-logo" width="80" height="80" />
+        </div>
+        <span class="loader-text">Tux Interior</span>
+      </div>
     </div>
 
-    <!-- Hero -->
-    <section class="hero">
+    <!-- 2. STICKY HEADER -->
+    <header class="site-header">
+      <div class="container header-container">
+        <!-- Brand / Logo Zone -->
+        <a href="index.html" class="header-brand" aria-label="Tux Interior Home">
+          <img src="logo.jpg" alt="Tux Interior Ahmedabad" class="site-logo" width="160" height="52" />
+        </a>
 
-      <div class="badge">
-        <span class="badge-dot"></span>
-        GRAND OPENING • AHMEDABAD
-      </div>
+        <!-- Desktop Navigation Zone -->
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+            <li><a href="#pricing" class="nav-link">Pricing</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
 
-      <h1>
-        Something Beautiful<br />
-        <span>Is Coming.</span>
-      </h1>
-
-      <div class="brand-name">
-        TUX INTERIOR
-      </div>
-
-      <p class="hero-description">
-        We’re getting ready to create beautiful spaces in Ahmedabad.
-      </p>
-
-      <div class="service-line">
-        Interior Design &nbsp;•&nbsp; Architecture &nbsp;•&nbsp; Turnkey Interiors
-      </div>
-
-    </section>
-
-    <!-- Countdown -->
-    <section class="countdown-section">
-
-      <div class="countdown-title">
-        Counting Down To Our Grand Opening
-      </div>
-
-      <!--
-        FIXED STAGE:
-        Gift and countdown exist in exactly the same position.
-      -->
-      <div class="reveal-stage">
-
-        <!-- Gift -->
-        <div class="gift-scene" id="giftScene">
-
-          <div class="tap-hint">
-            <span class="tap-finger">👇</span>
-            TAP TO UNWRAP
-          </div>
-
-          <button
-            class="gift-button"
-            id="giftButton"
-            aria-label="Tap to unwrap and reveal the opening countdown"
-          >
-            <span class="gift-shadow"></span>
-
-            <span class="gift-bow">
-              <span class="bow-left"></span>
-              <span class="bow-right"></span>
-              <span class="bow-center"></span>
-            </span>
-
-            <span class="gift-lid"></span>
-            <span class="gift-body"></span>
-
-            <span class="gift-click-label">
-              Tap to reveal
-            </span>
+        <!-- Header Actions Zone -->
+        <div class="header-actions">
+          <button class="btn btn-primary btn-consult-desktop" data-open-enquiry>Get Free Consultation</button>
+          <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-
         </div>
+      </div>
+    </header>
 
-        <!-- Countdown -->
-        <div class="countdown-content" id="countdownContent">
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div class="mobile-nav-drawer" aria-hidden="true">
+      <div class="mobile-nav-panel">
+        <div class="mobile-nav-header">
+          <img src="logo.jpg" alt="Tux Interior Ahmedabad" style="height: 42px; width: auto;" />
+          <button class="mobile-nav-close" aria-label="Close Navigation" style="font-size: 1.5rem; color: var(--secondary);">✕</button>
+        </div>
+        <ul class="mobile-nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+          <button class="btn btn-primary" style="width: 100%;" data-open-enquiry>Get Free Consultation</button>
+          <a href="https://wa.me/919145879563?text=Hello%20Tux%20Interior%2C%20I%20am%20interested%20in%20a%20home%20interior%20project." class="btn btn-whatsapp" style="width: 100%;" target="_blank" rel="noopener">WhatsApp Us</a>
+          <div class="mobile-contact-info">
+            <p><strong>Phone:</strong> +91 919145879563</p>
+            <p><strong>Location:</strong> Gota, Ahmedabad, Gujarat</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-          <div id="timerArea" style="width:100%;">
-
-            <div class="timer-grid">
-
-              <div class="time-card">
-                <span class="time-number" id="days">00</span>
-                <span class="time-label">Days</span>
-              </div>
-
-              <div class="time-card">
-                <span class="time-number" id="hours">00</span>
-                <span class="time-label">Hours</span>
-              </div>
-
-              <div class="time-card">
-                <span class="time-number" id="minutes">00</span>
-                <span class="time-label">Minutes</span>
-              </div>
-
-              <div class="time-card">
-                <span class="time-number" id="seconds">00</span>
-                <span class="time-label">Seconds</span>
-              </div>
-
+    <main>
+      <!-- 3. HERO SECTION -->
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Residential Interiors & Turnkey Execution • Ahmedabad
             </div>
-
-            <div class="opening-message" id="openingMessage">
-              <strong>WE’RE OFFICIALLY OPEN</strong>
-              <span>Welcome to Tux Interior.</span>
+            <h1 class="hero-headline">Beautiful Interiors. Thoughtfully Designed for Your Home.</h1>
+            <p class="hero-subtext">Tux Interior creates modern, functional and personalized home interiors with complete turnkey execution across Ahmedabad.</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary btn-lg" data-open-enquiry>Get Free Consultation</button>
+              <a href="#portfolio" class="btn btn-outline btn-lg">Explore Our Work</a>
             </div>
+            <div class="hero-features-strip">
+              <div class="hero-feature-item">
+                <span class="hero-feature-icon">✓</span>
+                Turnkey Execution
+              </div>
+              <div class="hero-feature-item">
+                <span class="hero-feature-icon">✓</span>
+                Master Carpentry
+              </div>
+              <div class="hero-feature-item">
+                <span class="hero-feature-icon">✓</span>
+                Transparent Estimates
+              </div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <div class="hero-image-frame">
+              <img src="images/hero.jpg" alt="Modern Home Interior Design in Ahmedabad" class="hero-image" width="1200" height="800" loading="eager" />
+            </div>
+            <div class="hero-floating-card">
+              <div class="floating-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              </div>
+              <div>
+                <div class="floating-title">Complete Home Interiors</div>
+                <div class="floating-sub">Planning to Handover in Gota, Ahmedabad</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- 4. ABOUT SECTION -->
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-images-cluster">
+            <div class="about-main-img-box">
+              <img src="images/project-06.jpg" alt="Turnkey Home Interior in Ahmedabad by Tux Interior" class="about-main-img" width="800" height="600" loading="lazy" />
+            </div>
+            <div class="about-pill-stats">
+              <div class="about-stat-item">
+                <div class="about-stat-title">Turnkey Precision</div>
+                <div class="about-stat-text">Single team accountability from bare shell to final handover.</div>
+              </div>
+              <div class="about-stat-item">
+                <div class="about-stat-title">Carpentry Roots</div>
+                <div class="about-stat-text">Decades of on-site woodwork, hardware & material mastery.</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-text-content">
+            <span class="section-kicker">About Tux Interior</span>
+            <h2 class="section-title">Built on Craftsmanship, Delivered with Integrity</h2>
+            <p>Tux Interior started in 2026 in Ahmedabad with a focus on creating modern, practical and beautifully finished interiors.</p>
+            <p>The company provides complete interior solutions from planning and design to execution and final finishing. Our team combines practical execution experience, carpentry knowledge, material understanding and meticulous project coordination to make your home journey smooth and stress-free.</p>
+            <ul class="about-highlights-list">
+              <li class="about-highlight-item">
+                <span class="about-highlight-bullet">✦</span>
+                <span>Practical on-site execution with direct supervision on every residential site.</span>
+              </li>
+              <li class="about-highlight-item">
+                <span class="about-highlight-bullet">✦</span>
+                <span>In-depth material guidance for plywood, laminates, acrylics, hardware and paints.</span>
+              </li>
+              <li class="about-highlight-item">
+                <span class="about-highlight-bullet">✦</span>
+                <span>Timely schedules and clear communication for homeowners across Ahmedabad.</span>
+              </li>
+            </ul>
+            <a href="about.html" class="btn btn-secondary">Know More About Us</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. SERVICES SECTION (12 Services) -->
+      <section class="section section-light" id="services">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Our Services</span>
+            <h2 class="section-title">End-to-End Home Interior Solutions</h2>
+            <p class="section-desc">From initial site measurement to final polish, we cover every aspect of residential interior execution under one roof.</p>
           </div>
 
+          <div class="services-grid">
+            <!-- 1. Complete Home Interior -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              </div>
+              <h3 class="service-card-title">1. Complete Home Interior</h3>
+              <p class="service-card-desc">Holistic interior design and turnkey finishing tailored for modern 2 BHK, 3 BHK, and 4 BHK residences in Ahmedabad.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 2. Turnkey Interior Projects -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              </div>
+              <h3 class="service-card-title">2. Turnkey Interior Projects</h3>
+              <p class="service-card-desc">Zero-stress project management. We handle procurement, vendor coordination, labor, and quality checks right to final keys.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 3. Furniture & Carpentry -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path><line x1="8" y1="21" x2="8" y2="13"></line><line x1="16" y1="21" x2="16" y2="13"></line><line x1="12" y1="7" x2="12" y2="3"></line></svg>
+              </div>
+              <h3 class="service-card-title">3. Furniture & Carpentry</h3>
+              <p class="service-card-desc">Custom on-site carpentry with calibrated plywood, durable laminates, premium edge-banding, and precision woodcraft.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 4. Modular Furniture -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              </div>
+              <h3 class="service-card-title">4. Modular Furniture</h3>
+              <p class="service-card-desc">Factory-finished modular wardrobes, TV consoles, and study units equipped with soft-close hydraulic hardware.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 5. POP & False Ceiling -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="4" x2="22" y2="4"></line><line x1="5" y1="8" x2="19" y2="8"></line><path d="M7 12l5 5 5-5"></path></svg>
+              </div>
+              <h3 class="service-card-title">5. POP & False Ceiling</h3>
+              <p class="service-card-desc">Contemporary gypsum and POP false ceiling patterns with concealed cove channels and architectural profiles.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 6. Painting & Wall Finishes -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11V4a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v7"></path><path d="M5 11a4 4 0 0 0 8 0V4"></path><path d="M19 11a4 4 0 0 1-8 0"></path><line x1="12" y1="15" x2="12" y2="22"></line></svg>
+              </div>
+              <h3 class="service-card-title">6. Painting & Wall Finishes</h3>
+              <p class="service-card-desc">Royal luster finishes, textured accent walls, fluted charcoal paneling, and durable PU coats for exquisite walls.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 7. Electrical Work -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <h3 class="service-card-title">7. Electrical Work</h3>
+              <p class="service-card-desc">Safe concealed wiring, modular switch installations, ambient architectural lighting, and two-way bedside controls.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 8. Home Décor -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12a4 4 0 0 0 8 0"></path></svg>
+              </div>
+              <h3 class="service-card-title">8. Home Décor</h3>
+              <p class="service-card-desc">Curated artifacts, mirror panel accents, custom curtains, lighting fixtures, and tasteful styling accessories.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 9. Bedroom Interiors -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"></path><path d="M2 8h18a2 2 0 0 1 2 2v10"></path><path d="M2 17h20"></path><path d="M6 8v9"></path></svg>
+              </div>
+              <h3 class="service-card-title">9. Bedroom Interiors</h3>
+              <p class="service-card-desc">Serene master and kids bedrooms featuring upholstered headboards, bedside niches, and reeded glass wardrobes.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 10. Living Room Interiors -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <h3 class="service-card-title">10. Living Room Interiors</h3>
+              <p class="service-card-desc">Warm, welcoming living areas with custom TV units, entrance foyers, mandir partitions, and cozy sofa seating.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 11. Kitchen Interiors -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+              </div>
+              <h3 class="service-card-title">11. Kitchen Interiors</h3>
+              <p class="service-card-desc">Ergonomic modular kitchens featuring acrylic/laminate shutters, tandem drawers, corner pullouts, and quartz counters.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+
+            <!-- 12. Storage Solutions -->
+            <div class="service-card">
+              <div class="service-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="12" x2="21" y2="12"></line><line x1="12" y1="3" x2="12" y2="21"></line></svg>
+              </div>
+              <h3 class="service-card-title">12. Storage Solutions</h3>
+              <p class="service-card-desc">Clever concealed lofts, shoe consoles, vanity units, and utility storage maximizing space in modern apartments.</p>
+              <button class="service-card-action" data-open-enquiry>Get Details →</button>
+            </div>
+          </div>
         </div>
+      </section>
 
-      </div>
+      <!-- 6. WHY CHOOSE TUX INTERIOR -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Our Core Strengths</span>
+            <h2 class="section-title">Why Choose Tux Interior</h2>
+            <p class="section-desc">We build homes with honest guidance, direct site supervision, and uncompromising carpentry standards.</p>
+          </div>
 
-    </section>
+          <div class="why-grid">
+            <div class="why-card">
+              <div class="why-number">01</div>
+              <h3 class="why-card-title">Complete Turnkey Execution</h3>
+              <p class="why-card-desc">End-to-end management so you never have to coordinate between separate carpenters, electricians, or painters.</p>
+            </div>
 
-    <!-- Share -->
-    <div class="share-wrap">
-      <button class="share-btn" id="shareButton">
-        <i class="fa-solid fa-user-plus"></i>
-         &nbsp; Invite your friends
-      </button>
-    </div>
+            <div class="why-card">
+              <div class="why-number">02</div>
+              <h3 class="why-card-title">Practical On-Site Experience</h3>
+              <p class="why-card-desc">Our leadership comes from real carpentry and site execution roots, preventing costly construction errors.</p>
+            </div>
 
-  </main>
+            <div class="why-card">
+              <div class="why-number">03</div>
+              <h3 class="why-card-title">Custom Furniture & Carpentry</h3>
+              <p class="why-card-desc">Tailor-made dimensions fitted to every millimeter of your room layout with calibrated materials.</p>
+            </div>
 
-    <!-- Opening Details -->
-    <section class="details">
+            <div class="why-card">
+              <div class="why-number">04</div>
+              <h3 class="why-card-title">Transparent Project Planning</h3>
+              <p class="why-card-desc">Clear specification sheets, itemized material lists, and staged milestone billing without hidden clauses.</p>
+            </div>
 
-      <div class="detail-card">
-        <div class="detail-label">Grand Opening</div>
-        <div class="detail-value">
-          01 October 2026
-          <small>India Standard Time (IST)</small>
+            <div class="why-card">
+              <div class="why-number">05</div>
+              <h3 class="why-card-title">Quality-Focused Execution</h3>
+              <p class="why-card-desc">Branded hardware, premium adhesives, edge-banded boards, and thorough multi-point quality checks.</p>
+            </div>
+
+            <div class="why-card">
+              <div class="why-number">06</div>
+              <h3 class="why-card-title">One Team From Design to Handover</h3>
+              <p class="why-card-desc">Single point of contact from your first consultation until you receive the keys to your completed home.</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="detail-card">
-        <div class="detail-label">Opening Location</div>
-        <div class="detail-value">
-          Money Plant High Street
-          <small>A-1130, Jagatpur Rd, Gota, Ahmedabad</small>
+      <!-- 7. PORTFOLIO SECTION -->
+      <section class="section section-light" id="portfolio">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Portfolio & Work</span>
+            <h2 class="section-title">Crafted for Ahmedabad Living</h2>
+            <p class="section-desc">Browse our residential projects spanning living rooms, modular kitchens, bedrooms, and complete turnkey homes.</p>
+          </div>
+
+          <!-- Interactive Filter Tabs -->
+          <div class="portfolio-filter-tabs">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="living-room">Living Room</button>
+            <button class="filter-btn" data-filter="bedroom">Bedroom</button>
+            <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+            <button class="filter-btn" data-filter="furniture">Furniture</button>
+            <button class="filter-btn" data-filter="complete-home">Complete Home</button>
+          </div>
+
+          <!-- Portfolio Grid -->
+          <div class="portfolio-grid">
+            <!-- Project 1: Living Room -->
+            <div class="portfolio-card" data-category="living-room">
+              <div class="portfolio-img-box">
+                <span class="portfolio-category-badge">Living Room</span>
+                <img src="images/project-01.jpg" alt="Modern Living Room Interior in Gota Ahmedabad" class="portfolio-img" width="800" height="600" loading="lazy" />
+              </div>
+              <div class="portfolio-content">
+                <h3 class="portfolio-card-title">Modern Fluted TV Console & Lounge</h3>
+                <div class="portfolio-meta-specs">
+                  <span>Ahmedabad</span>
+                  <span>·</span>
+                  <span>Living Room</span>
+                </div>
+                <button class="portfolio-view-btn" data-open-enquiry>Enquire About This Design →</button>
+              </div>
+            </div>
+
+            <!-- Project 2: Bedroom -->
+            <div class="portfolio-card" data-category="bedroom">
+              <div class="portfolio-img-box">
+                <span class="portfolio-category-badge">Bedroom</span>
+                <img src="images/project-02.jpg" alt="Master Bedroom Interior Design by Tux Interior" class="portfolio-img" width="800" height="600" loading="lazy" />
+              </div>
+              <div class="portfolio-content">
+                <h3 class="portfolio-card-title">Serene Master Suite with Wooden Accents</h3>
+                <div class="portfolio-meta-specs">
+                  <span>Ahmedabad</span>
+                  <span>·</span>
+                  <span>Master Bedroom</span>
+                </div>
+                <button class="portfolio-view-btn" data-open-enquiry>Enquire About This Design →</button>
+              </div>
+            </div>
+
+            <!-- Project 3: Kitchen -->
+            <div class="portfolio-card" data-category="kitchen">
+              <div class="portfolio-img-box">
+                <span class="portfolio-category-badge">Kitchen</span>
+                <img src="images/project-03.jpg" alt="Modular Kitchen Design in Ahmedabad" class="portfolio-img" width="800" height="600" loading="lazy" />
+              </div>
+              <div class="portfolio-content">
+                <h3 class="portfolio-card-title">Ergonomic Modular Kitchen & Breakfast Bar</h3>
+                <div class="portfolio-meta-specs">
+                  <span>Ahmedabad</span>
+                  <span>·</span>
+                  <span>Modular Kitchen</span>
+                </div>
+                <button class="portfolio-view-btn" data-open-enquiry>Enquire About This Design →</button>
+              </div>
+            </div>
+
+            <!-- Project 4: Furniture -->
+            <div class="portfolio-card" data-category="furniture">
+              <div class="portfolio-img-box">
+                <span class="portfolio-category-badge">Furniture</span>
+                <img src="images/project-04.jpg" alt="Custom Woodwork & Carpentry in Ahmedabad" class="portfolio-img" width="800" height="600" loading="lazy" />
+              </div>
+              <div class="portfolio-content">
+                <h3 class="portfolio-card-title">Bespoke Dining & Carpentry Joinery</h3>
+                <div class="portfolio-meta-specs">
+                  <span>Ahmedabad</span>
+                  <span>·</span>
+                  <span>Carpentry</span>
+                </div>
+                <button class="portfolio-view-btn" data-open-enquiry>Enquire About This Design →</button>
+              </div>
+            </div>
+
+            <!-- Project 5: Complete Home -->
+            <div class="portfolio-card" data-category="complete-home">
+              <div class="portfolio-img-box">
+                <span class="portfolio-category-badge">Complete Home</span>
+                <img src="images/project-05.jpg" alt="Turnkey Residential Interior Project Ahmedabad" class="portfolio-img" width="800" height="600" loading="lazy" />
+              </div>
+              <div class="portfolio-content">
+                <h3 class="portfolio-card-title">3 BHK Turnkey Apartment Renovation</h3>
+                <div class="portfolio-meta-specs">
+                  <span>Jagatpur, Ahmedabad</span>
+                  <span>·</span>
+                  <span>Full Interior</span>
+                </div>
+                <button class="portfolio-view-btn" data-open-enquiry>Enquire About This Design →</button>
+              </div>
+            </div>
+
+            <!-- Project 6: Complete Home / Living -->
+            <div class="portfolio-card" data-category="complete-home">
+              <div class="portfolio-img-box">
+                <span class="portfolio-category-badge">Complete Home</span>
+                <img src="images/project-06.jpg" alt="Warm Minimalist Home Interior Ahmedabad" class="portfolio-img" width="800" height="600" loading="lazy" />
+              </div>
+              <div class="portfolio-content">
+                <h3 class="portfolio-card-title">Contemporary 4 BHK Villa Interior</h3>
+                <div class="portfolio-meta-specs">
+                  <span>Gota, Ahmedabad</span>
+                  <span>·</span>
+                  <span>Villa Project</span>
+                </div>
+                <button class="portfolio-view-btn" data-open-enquiry>Enquire About This Design →</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-    </section>
+      <!-- 8. PROCESS SECTION -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">How We Work</span>
+            <h2 class="section-title">Our 6-Step Turnkey Process</h2>
+            <p class="section-desc">A structured, hassle-free journey designed to give you clarity and complete peace of mind at each stage.</p>
+          </div>
 
-    <!-- Opening Day Enquiry -->
-    <section class="enquiry">
+          <div class="process-grid">
+            <div class="process-card">
+              <div class="process-step-num">01</div>
+              <h3 class="process-title">Consultation</h3>
+              <p class="process-desc">Understanding your vision, lifestyle needs, preferred styles, and initial budget parameters.</p>
+            </div>
 
-      <div class="enquiry-copy">
-        <div class="eyebrow">Opening Day Enquiry</div>
+            <div class="process-card">
+              <div class="process-step-num">02</div>
+              <h3 class="process-title">Site Visit</h3>
+              <p class="process-desc">Comprehensive on-site measurements, architectural structural check, and lighting assessment.</p>
+            </div>
 
-        <h2>Planning a new space?</h2>
+            <div class="process-card">
+              <div class="process-step-num">03</div>
+              <h3 class="process-title">Design & Planning</h3>
+              <p class="process-desc">2D layout optimization, furniture ergonomics, false ceiling layouts, and electrical point planning.</p>
+            </div>
 
-        <p>
-          Connect with Tux Interior for your interior or architecture enquiry.
-        </p>
-      </div>
+            <div class="process-card">
+              <div class="process-step-num">04</div>
+              <h3 class="process-title">Material Selection</h3>
+              <p class="process-desc">Curating laminates, veneers, hardware, countertop stones, and paint shades with tangible samples.</p>
+            </div>
 
-      <div class="enquiry-actions">
+            <div class="process-card">
+              <div class="process-step-num">05</div>
+              <h3 class="process-title">Execution</h3>
+              <p class="process-desc">Hands-on carpentry, ceiling installation, tiling, electrical work, and painting with milestone reviews.</p>
+            </div>
 
-        <a
-          class="btn btn-primary"
-          href="https://wa.me/919145879563?text=Hello%20Tux%20Interior%2C%20I%20would%20like%20to%20know%20more%20about%20your%20interior%20services."
-          target="_blank"
-          rel="noopener"
-        >
-          WhatsApp Enquiry
-        </a>
+            <div class="process-card">
+              <div class="process-step-num">06</div>
+              <h3 class="process-title">Final Handover</h3>
+              <p class="process-desc">Deep cleaning, hardware inspection, final walkthrough, and handover of your ready-to-live home.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <a
-          class="btn btn-secondary"
-          href="tel:+919145879563"
-        >
-          Call Now
-        </a>
+      <!-- 9. PRICING SECTION -->
+      <section class="section section-light" id="pricing">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Indicative Estimates</span>
+            <h2 class="section-title">Transparent Interior Estimates</h2>
+            <p class="section-desc">Select your property type below to explore estimated packages tailored for homes in Ahmedabad.</p>
+          </div>
 
-      </div>
+          <!-- Switcher -->
+          <div class="pricing-tabs-wrapper">
+            <div class="pricing-segmented-switch">
+              <button class="pricing-toggle-btn active" data-type="apartment">Apartment Interiors</button>
+              <button class="pricing-toggle-btn" data-type="bungalow">Bungalow Interiors</button>
+            </div>
+          </div>
 
-    </section>
+          <!-- Cards Render Target -->
+          <div id="pricing-cards-container" class="pricing-cards-container">
+            <!-- Dynamically populated via JS script.js -->
+          </div>
 
-    <!-- Location -->
-    <div class="location">
-      <strong>Money Plant High Street</strong>
-      <span>•</span>
-      <span>A-1130, Jagatpur Rd, Gota, Ahmedabad, Gujarat 382470</span>
-      <span>•</span>
+          <!-- Mandatory Pricing Note -->
+          <div class="pricing-note-banner">
+            <p class="pricing-note-text">
+              <strong>Please Note:</strong> Indicative pricing. Final pricing depends on design, materials, specifications, site conditions and project requirements.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <a
-        href="https://www.google.com/maps/search/?api=1&query=Tux%20Interior%2C%20Money%20Plant%20High%20Street%2C%20A-1130%2C%20Jagatpur%20Rd%2C%20Gota%2C%20Ahmedabad%2C%20Gujarat%20382470"
-        target="_blank"
-        rel="noopener"
-      >
-        Get Directions
-      </a>
-    </div>
+      <!-- 10. LEADERSHIP / FOUNDERS SECTION -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Leadership</span>
+            <h2 class="section-title">Meet Our Founders</h2>
+            <p class="section-desc">Experienced hands leading on-site carpentry, material selection, and reliable execution.</p>
+          </div>
 
+          <div class="founders-grid">
+            <!-- Founder 1: Bhagwan Bhai -->
+            <div class="founder-card">
+              <div class="founder-avatar-box">
+                <img src="images/founder-bhagwan.jpg" alt="Bhagwan Bhai Co-Founder Tux Interior Ahmedabad" class="founder-avatar" width="120" height="120" loading="lazy" />
+              </div>
+              <h3 class="founder-name">Bhagwan Bhai</h3>
+              <div class="founder-role">Co-Founder</div>
+              <p class="founder-bio">
+                Bhagwan Bhai brings extensive business experience along with strong practical knowledge of carpentry and interior execution. His journey includes hands-on work in the field, giving him a practical understanding of furniture, craftsmanship, materials and on-site execution.
+              </p>
+              <a href="tel:+91919145879563" class="founder-contact-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Call: +91 919145879563
+              </a>
+            </div>
 
+            <!-- Founder 2: Madan Bhai -->
+            <div class="founder-card">
+              <div class="founder-avatar-box">
+                <img src="images/founder-madan.jpg" alt="Madan Bhai Co-Founder Tux Interior Ahmedabad" class="founder-avatar" width="120" height="120" loading="lazy" />
+              </div>
+              <h3 class="founder-name">Madan Bhai</h3>
+              <div class="founder-role">Co-Founder</div>
+              <p class="founder-bio">
+                Madan Bhai brings long-standing business experience and practical knowledge of carpentry and interior work. His hands-on background gives him a strong understanding of workmanship, materials and real-world project execution.
+              </p>
+              <a href="tel:+919601343574" class="founder-contact-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Call: +91 9601343574
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- =======================================================
-       FOOTER
-  ======================================================== -->
+      <!-- 11. CTA BANNER -->
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <div class="cta-banner">
+            <div class="cta-banner-content">
+              <h2 class="cta-banner-title">Ready to Transform Your Home in Ahmedabad?</h2>
+              <p class="cta-banner-desc">Book a personalized consultation with our team. We'll discuss your floor plan, styling preferences, and provide an honest estimate.</p>
+              <div class="cta-banner-actions">
+                <button class="btn btn-primary btn-lg" data-open-enquiry>Get Free Consultation</button>
+                <a href="https://wa.me/919145879563?text=Hello%20Tux%20Interior%2C%20I%20am%20interested%20in%20a%20home%20interior%20project." class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">Chat on WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <footer>
+      <!-- 12. GET IN TOUCH & GOOGLE MAP SECTION -->
+      <section class="section section-light" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Get In Touch</span>
+            <h2 class="section-title">Visit Our Studio or Talk to Us</h2>
+            <p class="section-desc">Conveniently located at Money Plant High Street in Gota, Ahmedabad. We are here to bring your dream space to life.</p>
+          </div>
 
-    <div class="footer-inner">
+          <div class="contact-layout-grid">
+            <!-- Left: Contact Details -->
+            <div class="contact-info-cards">
+              <div class="contact-info-item">
+                <div class="contact-icon-bubble">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <h3 class="contact-item-title">Studio Address</h3>
+                  <p class="contact-item-detail">
+                    <strong>Tux Interior</strong><br />
+                    Money Plant High Street, A-1130,<br />
+                    Jagatpur Rd, Gota,<br />
+                    Ahmedabad, Gujarat 382470
+                  </p>
+                  <div class="contact-action-buttons">
+                    <a href="https://maps.google.com/?q=Money+Plant+High+Street+Gota+Ahmedabad" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Get Directions</a>
+                  </div>
+                </div>
+              </div>
 
-      <div class="footer-top">
+              <div class="contact-info-item">
+                <div class="contact-icon-bubble">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div>
+                  <h3 class="contact-item-title">Phone Numbers</h3>
+                  <p class="contact-item-detail">
+                    +91 919145879563 — Bhagwan Bhai<br />
+                    +91 9601343574 — Madan Bhai
+                  </p>
+                  <div class="contact-action-buttons">
+                    <a href="tel:+91919145879563" class="btn btn-primary btn-sm">Call Now</a>
+                    <a href="https://wa.me/919145879563?text=Hello%20Tux%20Interior%2C%20I%20am%20interested%20in%20a%20home%20interior%20project." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+                  </div>
+                </div>
+              </div>
 
-        <!-- Brand -->
-        <div class="footer-brand">
+              <div class="contact-info-item">
+                <div class="contact-icon-bubble">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div>
+                  <h3 class="contact-item-title">Email Inquiries</h3>
+                  <p class="contact-item-detail">
+                    tuxinterior63@gmail.com
+                  </p>
+                  <div class="contact-action-buttons">
+                    <a href="mailto:tuxinterior63@gmail.com" class="btn btn-outline btn-sm">Email Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <img
-            src="logo.jpg"
-            alt="Tux Interior"
-          />
+            <!-- Right: Interactive Google Map -->
+            <div class="map-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.5640627956373!2d72.5385922!3d23.1130489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e831eef06c8ff%3A0xe37e3d5959e3a5f5!2sTux%20Interior!5e0!3m2!1sen!2sin!4v1791372491646!5m2!1sen!2sin"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
+    <!-- 13. COMMON FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-top-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div class="footer-brand-col">
+          <a href="index.html">
+            <img src="logo.jpg" alt="Tux Interior Ahmedabad" style="height: 48px; width: auto; filter: brightness(0) invert(1);" />
+          </a>
           <p>
-            Interior Design, Architecture & Turnkey Interiors.
-            Creating thoughtfully designed spaces in Ahmedabad.
+            Tux Interior is a premier residential interior design and turnkey execution studio in Ahmedabad. We combine deep carpentry expertise with modern design thinking.
           </p>
-
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="404.html" class="footer-social-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="404.html" class="footer-social-btn" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+            <a href="404.html" class="footer-social-btn" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="404.html" class="footer-social-btn" aria-label="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="8"></circle></svg>
+            </a>
+            <a href="404.html" class="footer-social-btn" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </a>
+          </div>
         </div>
 
-        <!-- Social -->
+        <!-- Col 2: Quick Links -->
         <div>
-
-          <div class="footer-heading">
-            Social
-          </div>
-
-          <div class="footer-links">
-
-            <!-- Temporary redirect to 404.html -->
-            <a href="404.html">Instagram</a>
-            <a href="404.html">Facebook</a>
-            <a href="404.html">LinkedIn</a>
-            <a href="404.html">YouTube</a>
-
-          </div>
-
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#pricing">Indicative Pricing</a></li>
+            <li><a href="blog.html">Interior Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
         </div>
 
-        <!-- Links -->
+        <!-- Col 3: Services -->
         <div>
-
-          <div class="footer-heading">
-            Quick Links
-          </div>
-
-          <div class="footer-links">
-
-            <!-- Temporary redirect to 404.html -->
-            <a href="404.html">About Tux Interior</a>
-            <a href="404.html">Interior Services</a>
-            <a href="404.html">Architecture</a>
-            <a href="404.html">Contact</a>
-
-          </div>
-
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="#services">Home Interior</a></li>
+            <li><a href="#services">Turnkey Interiors</a></li>
+            <li><a href="#services">Custom Furniture</a></li>
+            <li><a href="#services">Carpentry Work</a></li>
+            <li><a href="#services">POP & Ceilings</a></li>
+            <li><a href="#services">Painting & Polish</a></li>
+            <li><a href="#services">Electrical Planning</a></li>
+            <li><a href="#services">Home Décor</a></li>
+          </ul>
         </div>
 
+        <!-- Col 4: Contact -->
+        <div>
+          <h4 class="footer-heading">Contact Details</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Money Plant High Street, A-1130, Jagatpur Rd, Gota, Ahmedabad, Gujarat 382470</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+91 919145879563 (Bhagwan Bhai)<br />+91 9601343574 (Madan Bhai)</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>tuxinterior63@gmail.com</span>
+          </div>
+        </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="container footer-bottom-bar">
+        <div>© 2026 Tux Interior. All Rights Reserved.</div>
+        <div>Residential Home Interior Design & Turnkey Projects in Ahmedabad</div>
+      </div>
+    </footer>
 
-        <span>
-          © <span id="year"></span> <strong>Tux Interior</strong>. All rights reserved.
-        </span>
-
-        <span>
-          Ahmedabad, Gujarat
-        </span>
-
-        <div class="footer-credit">
-          Design &amp; Developed by <a href="https://www.drexagency.shop" target="_blank" rel="noopener noreferrer" class="agency-credit-link">Drex agency</a>
+    <!-- 14. ENQUIRY POPUP MODAL -->
+    <div id="enquiry-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-container">
+        <button class="modal-close-btn" aria-label="Close modal">✕</button>
+        <div class="modal-header">
+          <span class="modal-badge">Free Consultation</span>
+          <h2 class="modal-title">Get a Custom Estimate for Your Home</h2>
+          <p class="modal-desc">Share your requirements. We'll connect with you on WhatsApp with personalized ideas.</p>
         </div>
 
-      </div>
+        <form id="popup-enquiry-form">
+          <div class="form-group">
+            <label for="popup-name" class="form-label">Full Name *</label>
+            <input type="text" id="popup-name" class="form-input" placeholder="e.g. Ramesh Patel" required />
+          </div>
 
+          <div class="form-group">
+            <label for="popup-mobile" class="form-label">Mobile Number *</label>
+            <input type="tel" id="popup-mobile" class="form-input" placeholder="e.g. 9876543210" required />
+          </div>
+
+          <div class="form-group">
+            <label for="popup-address" class="form-label">Project Address / Society Name *</label>
+            <input type="text" id="popup-address" class="form-input" placeholder="e.g. Gota, Jagatpur, South Bopal, Ahmedabad" required />
+          </div>
+
+          <div class="form-group">
+            <label for="popup-config" class="form-label">Configuration *</label>
+            <select id="popup-config" class="form-select" required>
+              <option value="" disabled selected>Select Configuration</option>
+              <option value="2 BHK">2 BHK</option>
+              <option value="3 BHK">3 BHK</option>
+              <option value="4 BHK">4 BHK</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="popup-budget" class="form-label">Budget *</label>
+            <input type="text" id="popup-budget" class="form-input" placeholder="e.g. 10.5 Lakh, 15 Lakh, 20 Lakh+" required />
+            <div class="form-help">Helps us recommend the best materials & hardware package.</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Send Enquiry via WhatsApp
+          </button>
+        </form>
+      </div>
     </div>
 
-  </footer>
-
-  <!-- =======================================================
-       SHARE MODAL
-  ======================================================== -->
-
-  <div class="share-overlay" id="shareOverlay">
-
-    <div class="share-panel">
-
-      <div class="share-panel-top">
-
-        <h3>Share Tux Interior</h3>
-
-        <button
-          class="close-share"
-          id="closeShare"
-          aria-label="Close share window"
-        >
-          ×
-        </button>
-
-      </div>
-
-      <p>
-        Share the grand opening with someone planning their next space.
-      </p>
-
-      <div class="share-options">
-
-        <button class="share-option" id="whatsappShare">
-          WhatsApp
-        </button>
-
-        <button class="share-option" id="facebookShare">
-          Facebook
-        </button>
-
-        <button class="share-option" id="telegramShare">
-          Telegram
-        </button>
-
-        <button class="share-option" id="copyShare">
-          Copy Link
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- Celebration particles -->
-  <div id="celebration"></div>
-
-  <script>
-    /* =========================================================
-       CONFIG
-    ========================================================= */
-
-    const OPENING_DATE = "2026-10-01T00:00:00+05:30";
-
-    const WHATSAPP_NUMBER = "919145879563";
-
-    const WHATSAPP_MESSAGE =
-      "Hello Tux Interior, I would like to know more about your interior services.";
-
-    /* =========================================================
-       ELEMENTS
-    ========================================================= */
-
-    const giftButton = document.getElementById("giftButton");
-    const giftScene = document.getElementById("giftScene");
-    const countdownContent = document.getElementById("countdownContent");
-
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
-
-    const openingMessage = document.getElementById("openingMessage");
-    const timerArea = document.getElementById("timerArea");
-
-    const shareButton = document.getElementById("shareButton");
-    const shareOverlay = document.getElementById("shareOverlay");
-    const closeShare = document.getElementById("closeShare");
-
-    const whatsappShare = document.getElementById("whatsappShare");
-    const facebookShare = document.getElementById("facebookShare");
-    const telegramShare = document.getElementById("telegramShare");
-    const copyShare = document.getElementById("copyShare");
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    /* =========================================================
-       COUNTDOWN
-    ========================================================= */
-
-    let countdownInterval = null;
-
-    function pad(value) {
-      return String(value).padStart(2, "0");
-    }
-
-    function updateCountdown() {
-
-      const now = Date.now();
-      const target = new Date(OPENING_DATE).getTime();
-
-      let difference = target - now;
-
-      if (difference <= 0) {
-
-        difference = 0;
-
-        daysEl.textContent = "00";
-        hoursEl.textContent = "00";
-        minutesEl.textContent = "00";
-        secondsEl.textContent = "00";
-
-        timerArea.querySelector(".timer-grid").style.display = "none";
-        openingMessage.classList.add("active");
-
-        if (countdownInterval) {
-          clearInterval(countdownInterval);
-          countdownInterval = null;
-        }
-
-        return;
-      }
-
-      const totalSeconds = Math.floor(difference / 1000);
-
-      const days = Math.floor(totalSeconds / 86400);
-
-      const hours = Math.floor(
-        (totalSeconds % 86400) / 3600
-      );
-
-      const minutes = Math.floor(
-        (totalSeconds % 3600) / 60
-      );
-
-      const seconds = totalSeconds % 60;
-
-      daysEl.textContent = pad(days);
-      hoursEl.textContent = pad(hours);
-      minutesEl.textContent = pad(minutes);
-      secondsEl.textContent = pad(seconds);
-    }
-
-    updateCountdown();
-
-    countdownInterval = setInterval(
-      updateCountdown,
-      1000
-    );
-
-    /* =========================================================
-       OPEN GIFT
-    ========================================================= */
-
-    let giftOpened = false;
-
-    function openGift() {
-
-      if (giftOpened) return;
-
-      giftOpened = true;
-
-      giftScene.classList.add("opened");
-
-      setTimeout(() => {
-        countdownContent.classList.add("visible");
-      }, 120);
-
-      launchCelebration();
-
-      try {
-        localStorage.setItem(
-          "tuxInteriorGiftOpened",
-          "true"
-        );
-      } catch (error) {
-        // Ignore storage errors.
-      }
-    }
-
-    giftButton.addEventListener(
-      "click",
-      openGift
-    );
-
-    /* =========================================================
-       CELEBRATION
-    ========================================================= */
-
-    function launchCelebration() {
-
-      const celebration =
-        document.getElementById("celebration");
-
-      celebration.innerHTML = "";
-
-      const particles = 46;
-
-      for (let i = 0; i < particles; i++) {
-
-        const particle =
-          document.createElement("span");
-
-        particle.className = "particle";
-
-        const angle =
-          Math.random() * Math.PI * 2;
-
-        const distance =
-          130 + Math.random() * 320;
-
-        const x =
-          Math.cos(angle) * distance;
-
-        const y =
-          Math.sin(angle) * distance;
-
-        const size =
-          3 + Math.random() * 5;
-
-        const rotation =
-          Math.random() * 720 - 360;
-
-        const isOrange =
-          Math.random() > 0.45;
-
-        particle.style.width =
-          size + "px";
-
-        particle.style.height =
-          size + "px";
-
-        particle.style.left =
-          "50%";
-
-        particle.style.top =
-          "46%";
-
-        particle.style.background =
-          isOrange
-            ? "var(--orange)"
-            : "var(--green)";
-
-        particle.style.setProperty(
-          "--x",
-          x + "px"
-        );
-
-        particle.style.setProperty(
-          "--y",
-          y + "px"
-        );
-
-        particle.style.setProperty(
-          "--r",
-          rotation + "deg"
-        );
-
-        particle.style.animationDelay =
-          Math.random() * 0.22 + "s";
-
-        celebration.appendChild(
-          particle
-        );
-      }
-
-      setTimeout(() => {
-        celebration.innerHTML = "";
-      }, 2300);
-    }
-
-    /* =========================================================
-       SHARE URL / REFERRAL
-    ========================================================= */
-
-    function getShareUrl() {
-
-      const baseUrl =
-        window.location.href.split("?")[0];
-
-      return (
-        baseUrl +
-        "?ref=tux-share"
-      );
-    }
-
-    const shareText =
-      "Tux Interior is opening soon in Ahmedabad. Grand Opening on 01 October 2026. Something beautiful is coming.";
-
-    /* =========================================================
-       NATIVE SHARE
-    ========================================================= */
-
-    shareButton.addEventListener(
-      "click",
-      async () => {
-
-        const shareUrl =
-          getShareUrl();
-
-        if (
-          navigator.share &&
-          /Android|iPhone|iPad|iPod/i.test(
-            navigator.userAgent
-          )
-        ) {
-
-          try {
-
-            await navigator.share({
-              title:
-                "Tux Interior — Something Beautiful Is Coming",
-              text: shareText,
-              url: shareUrl
-            });
-
-            return;
-
-          } catch (error) {
-            // User cancelled or browser rejected it.
-          }
-        }
-
-        shareOverlay.classList.add(
-          "active"
-        );
-      }
-    );
-
-    /* =========================================================
-       CLOSE SHARE
-    ========================================================= */
-
-    function closeSharePanel() {
-      shareOverlay.classList.remove(
-        "active"
-      );
-    }
-
-    closeShare.addEventListener(
-      "click",
-      closeSharePanel
-    );
-
-    shareOverlay.addEventListener(
-      "click",
-      (event) => {
-
-        if (
-          event.target ===
-          shareOverlay
-        ) {
-          closeSharePanel();
-        }
-
-      }
-    );
-
-    /* =========================================================
-       WHATSAPP SHARE
-    ========================================================= */
-
-    whatsappShare.addEventListener(
-      "click",
-      () => {
-
-        const url =
-          "https://wa.me/?text=" +
-          encodeURIComponent(
-            shareText +
-            "\n\n" +
-            getShareUrl()
-          );
-
-        window.open(
-          url,
-          "_blank",
-          "noopener"
-        );
-      }
-    );
-
-    /* =========================================================
-       FACEBOOK SHARE
-    ========================================================= */
-
-    facebookShare.addEventListener(
-      "click",
-      () => {
-
-        const url =
-          "https://www.facebook.com/sharer/sharer.php?u=" +
-          encodeURIComponent(
-            getShareUrl()
-          );
-
-        window.open(
-          url,
-          "_blank",
-          "noopener,width=700,height=500"
-        );
-      }
-    );
-
-    /* =========================================================
-       TELEGRAM SHARE
-    ========================================================= */
-
-    telegramShare.addEventListener(
-      "click",
-      () => {
-
-        const url =
-          "https://t.me/share/url?url=" +
-          encodeURIComponent(
-            getShareUrl()
-          ) +
-          "&text=" +
-          encodeURIComponent(
-            shareText
-          );
-
-        window.open(
-          url,
-          "_blank",
-          "noopener"
-        );
-      }
-    );
-
-    /* =========================================================
-       COPY SHARE LINK
-    ========================================================= */
-
-    copyShare.addEventListener(
-      "click",
-      async () => {
-
-        const url =
-          getShareUrl();
-
-        try {
-
-          await navigator.clipboard.writeText(
-            url
-          );
-
-          const oldText =
-            copyShare.textContent;
-
-          copyShare.textContent =
-            "Copied ✓";
-
-          setTimeout(() => {
-            copyShare.textContent =
-              oldText;
-          }, 1500);
-
-        } catch (error) {
-
-          const temporary =
-            document.createElement(
-              "textarea"
-            );
-
-          temporary.value = url;
-
-          document.body.appendChild(
-            temporary
-          );
-
-          temporary.select();
-
-          document.execCommand(
-            "copy"
-          );
-
-          temporary.remove();
-
-          copyShare.textContent =
-            "Copied ✓";
-
-          setTimeout(() => {
-            copyShare.textContent =
-              "Copy Link";
-          }, 1500);
-        }
-      }
-    );
-
-    /* =========================================================
-       ESC CLOSE SHARE
-    ========================================================= */
-
-    document.addEventListener(
-      "keydown",
-      (event) => {
-
-        if (
-          event.key === "Escape"
-        ) {
-          closeSharePanel();
-        }
-
-      }
-    );
-
-  </script>
-
-</body>
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+  </body>
 </html>
